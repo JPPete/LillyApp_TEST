@@ -1,0 +1,159 @@
+﻿<Window x:Class="LillyApp_TEST.POS_integracija"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LillyApp_TEST"
+        mc:Ignorable="d"
+        Title="Integracija POS terminala"
+        Height="800"
+        Width="800"
+        SizeToContent="WidthAndHeight" 
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="CanMinimize" 
+        Background="#003459">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="730"/>
+        </Grid.RowDefinitions>
+
+
+        <!--Label Naslov : Integracija POS terminala-->
+        <Label Content="Integracija POS terminala"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                FontSize="30" Foreground="#ffb703" FontWeight="Bold"/>
+        
+
+        <!--STACK PANEL ZA RADNI DEO PROGRAMA-->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+
+            <!--DG FOR SHOWING DATA-->
+            <DataGrid Name="dgVrstePlac" Height="700" Width="390" FontSize="15" 
+                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                      Style="{StaticResource BasicDataGrid}"
+                      />
+
+            <StackPanel  Orientation="Vertical" Margin="0 50 0 0">
+
+                <!--Label Naslov : Unesite Poslovnicu-->
+                <Label Content="Unesite Poslovnicu" 
+                       Width="400" 
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                       FontSize="20" Foreground="#ffb703" FontWeight="Bold"/>
+
+
+                <Grid>
+
+                    <!--Rectangle oko TextBoxa-->
+                    <Border Width="380" Height="65" 
+                            HorizontalAlignment="Center" 
+                            CornerRadius="13" BorderThickness="4"
+                            Margin="0 0 0 0"
+                            >
+                        <!--Border brush lets us show the curves on the corners-->
+                        <Border.BorderBrush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#Ffc000" Offset="0.0"/>
+                                <GradientStop Color="#F4B41A" Offset="0.50"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <Rectangle HorizontalAlignment="Left" Width="372">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#Ffc000" Offset="0.0"/>
+                                    <GradientStop Color="#F4B41A" Offset="0.50" />
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Border>
+
+                    <!--TextBox za unos broja poslovnice-->
+                    <TextBox Name="txtPoslovnica" Width="150" Height="30" 
+                         PreviewTextInput="NumberValidationTextBox" FontSize="18" 
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center" VerticalContentAlignment="Center" 
+                         HorizontalContentAlignment="Center"
+                         Margin="0 0 0 0" MaxLength="6"
+                         KeyUp="EnterUp"/>
+
+                </Grid>
+
+                <!--STACKPANEL ZA DUGMICE VRSTE PLACANJA-->
+                <StackPanel Margin="30 50 30 30">
+
+                    <Button Name ="btnTrenutne" Content="Trenutne vrste placanja" 
+                    Height="50" Width="250" 
+                    FontSize="18" 
+                    FontWeight="Bold" Foreground="#143D59" 
+                    VerticalAlignment="Center" Margin="0 40 0 10"
+                    Click="Trenutnebtn"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+                    
+                    <Button Name ="btnIntegracija" Content="Ubaci nove vrste placanja" 
+                    Height="50" Width="250" 
+                    FontSize="18" 
+                    FontWeight="Bold" Foreground="#143D59" 
+                    VerticalAlignment="Center" Margin="10"
+                    Click="Integracijaebtn"
+                    Visibility="Visible"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+
+                    <Button Name ="btnVracanje" Content="Vrati staru vrstu placanja" 
+                    Height="50" Width="250" 
+                    FontSize="18" 
+                    FontWeight="Bold" Foreground="#143D59" 
+                    VerticalAlignment="Center" Margin="10"
+                    Click="VratiStarubtn"
+                    Visibility="Visible"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+                </StackPanel>
+
+
+                <!--STACK PANEL ZA DUGMICE ZA KONFIGE KASA-->
+                <StackPanel>
+
+                    <Button Name ="btnPingDevices" Content="Nadji terminale" 
+                    Height="50" Width="250" 
+                    FontSize="18" 
+                    FontWeight="Bold" Foreground="#143D59" 
+                    VerticalAlignment="Center" Margin="0 10 0 10"
+                    Click="PingDevicebtn"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+                    <Button Name ="btnKonfInteg" Content="Prebaci konfig za integraciju" 
+                    Height="50" Width="250" 
+                    FontSize="18" 
+                    FontWeight="Bold" Foreground="#143D59" 
+                    VerticalAlignment="Center" Margin="0 20 0 10"
+                    Click="KongIntegbtn"
+                    Visibility="Visible"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+                    <Button Name ="btnKonfVrati" Content="Vrati stari konfig" 
+                    Height="50" Width="250" 
+                    FontSize="18" 
+                    FontWeight="Bold" Foreground="#143D59" 
+                    VerticalAlignment="Center" Margin="0 0 0 10"
+                    Click="KongVratibtn"
+                    Visibility="Visible"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+
+
+                </StackPanel>
+                
+
+
+
+            </StackPanel>
+            
+            <!--STACK PANEL ZA RADNI DEO PROGRAMA-->
+        </StackPanel>
+
+        <!--BASE GRID-->
+    </Grid>
+</Window>

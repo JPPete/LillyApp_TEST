@@ -1,0 +1,140 @@
+﻿<Window x:Class="LillyApp_TEST.ZatBlag"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LillyApp_TEST"
+        mc:Ignorable="d"
+        Title="ZatBlag" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Height="650" Width="1024" Background="#003459">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--NASLOV-->
+        <Label Content="Zatvaranje Blagajne iz Baze" Foreground="#ffb703" FontWeight="DemiBold" FontSize="25" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Mangal"/>
+
+
+
+        <!--YELLOW BORDER AROUND THE INPUT FIELDS-->
+        <Border Grid.Row="1" Width="800" CornerRadius="10" BorderThickness="5">
+            <!--Border brush lets us show the curves on the corners-->
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#Ffc000" Offset="0.0"/>
+                    <GradientStop Color="#F4B41A" Offset="0.50"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Rectangle Grid.Row="1">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#Ffc000" Offset="0.0"/>
+                        <GradientStop Color="#F4B41A" Offset="0.50" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+
+
+        <!--GRID FOR DATA INPUT-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <!--FIELDS GO INTO 1 2 3 ... 4 and 5 are just for space-->
+
+            <!--INPUT ZA POSLOVNICU-->
+            <Label Content="Poslovnica :" Grid.Column="1" Margin="0 10 0 0" Foreground="#003459" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+            <TextBox Name="txtPoslovnica" Width="150" Height="30" 
+                     Margin="0 30 0 0" 
+                     HorizontalAlignment="Center" VerticalContentAlignment="Center" 
+                     HorizontalContentAlignment="Center"  FontSize="18"
+                     PreviewTextInput="NumberValidationTextBox"
+                     KeyUp="EnterUpPosl"
+                     Grid.Column="1" MaxLength="6"/>
+
+
+
+            <!--INPUT ZA DATUM-->
+            <Label Content="Datum :" Grid.Column="2" Margin="0 10 0 0" Foreground="#003459" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+            <DatePicker Name ="dtDatum" Width="150" Height="30" Grid.Column="2" Margin="0 30 0 0"  FontSize="18"
+                        HorizontalAlignment="Center" VerticalContentAlignment="Center" FirstDayOfWeek="Monday" IsTodayHighlighted="True" 
+                        KeyUp="EnterUpDatum"/>
+
+
+            <!--INPUT ZA BLAGAJNU-->
+            <Label Content="Blagajna :" Grid.Column="3" Margin="0 10 0 0" Foreground="#003459" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+            <TextBox Name="txtBlag" Width="150" Height="30" 
+                     Margin="0 30 0 0" 
+                     HorizontalAlignment="Center" VerticalContentAlignment="Center" 
+                     HorizontalContentAlignment="Center"  FontSize="18"
+                     PreviewTextInput="NumberValidationTextBox"
+                     KeyUp="EnterUpBlag"
+                     Grid.Column="3" MaxLength="4"/>
+
+
+
+            <!--GRID FOR DATA INPUT-->
+        </Grid>
+
+
+
+
+        <!--GRID FOR DATA AND BUTTONS-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <!--LABEL AND DATA GRID FOR SHOWING RESULTS-->
+            <Label  Name="lbResult" Height="50" Width="400" Content="Proveri da li su zatvorene blagajne" Grid.Column="0" Margin="0 40 0 5" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   Foreground="#F4B41A" FontWeight="DemiBold" VerticalAlignment="Top"/>
+
+            <DataGrid Name="dataBaza" Width="430" Height="350" Grid.Column="0" Margin="0 70 0 0"
+                      Style="{StaticResource BasicDataGrid}"/>
+
+
+
+
+            <!--BUTTON PROVERA-->
+            <Button Name ="btnProvera" Content="Provera" 
+                    Height="70" Width="200" 
+                    Grid.Column="1" FontSize="20" 
+                    FontWeight="Bold" Foreground="#143D59" 
+                    VerticalAlignment="Center" Margin="0 0 0 150"
+                    Click="Provera_Click"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+            <!--BUTTON ZATVORI-->
+            <Button Name ="btnZatvori" Content="Zatvori !" 
+                    Height="150" Width="200" Grid.Column="1" 
+                    FontSize="20" FontWeight="Bold" 
+                    Foreground="#143D59" VerticalAlignment="Center" 
+                    Margin="0 200 0 0"
+                    Click="Zatvori_Click" Visibility="Hidden"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+
+            <!--GRID FOR DATA AND BUTTONS-->
+        </Grid>
+
+
+        <!--BASE GRID-->
+    </Grid>
+</Window>

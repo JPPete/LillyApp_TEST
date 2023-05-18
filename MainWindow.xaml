@@ -1,0 +1,127 @@
+﻿<Window x:Class="LillyApp_TEST.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LillyApp_TEST"
+        mc:Ignorable="d"
+        Title="Lilly App Login" 
+        Height="500" Width="400" ResizeMode="CanMinimize" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Background="#003459">
+    <Grid>
+        <!--BASE GRID-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Name="ToolBar" Grid.Row="0" 
+                       HorizontalAlignment="Stretch" Background="Transparent"
+                       MouseLeftButtonDown="MouseDownHold"/>
+
+
+        <!--LILLY LOGO IMAGE BACKGROUND-->
+        <Image  Source="Images\lilly_cvetic_400x400.png" Height="100"  Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+
+        <Button Name="btnMinimize" Content="-" Click="MinimizeBtn"  
+                FontWeight="Bold" FontSize="10"
+                Grid.Row="0"  
+                Height="18" Width="20"
+                Background="Orange"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="10 10 35 10"
+                ToolTip="Minimize"
+                Style="{StaticResource MyButtonStyle}"/>
+        
+        
+
+        <Button Name="btnExit" Content="X" Click="CloseBtn"  
+                FontWeight="Bold" FontSize="10"
+                Grid.Row="0"  
+                Height="18" Width="20"
+                Background="OrangeRed"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="10"
+                ToolTip="Exit"
+                Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+
+        <!--GRID FOR USERNAME PASSWORD-->
+        <Grid Grid.Row="1">
+
+            <!--USERNAME LABEL AND TEXTBOX GRID-->
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.8*"/>
+                </Grid.RowDefinitions>
+
+
+                <!--LABEL AND TEXT BOX FOR USERNAME-->
+                <Label Content="Username:" Foreground="#ffb703" FontWeight="DemiBold" 
+                       FontSize="16"  Grid.Row="0" Margin="0 0 0 0"
+                       VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Arial"/>
+
+                <TextBox x:Name="txtUsername" FontSize="18" 
+                         Margin="0 30 0 0" Width="190" Height="30" 
+                         FontWeight="DemiBold"  
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" 
+                         VerticalAlignment="Top" Grid.Row="0" 
+                         KeyUp="EnterUpUsr"/>
+
+
+
+                <!--LABEL AND TEXT BOX FOR PASSWORD-->
+                <Label Content="Password" Foreground="#ffb703" FontWeight="DemiBold" 
+                       FontSize="16"  Grid.Row="0" Margin="0 0 0 30" 
+                       VerticalAlignment="Bottom" HorizontalAlignment="Center" FontFamily="Arial"/>
+
+                <PasswordBox Name="txtPassword" FontSize="15" Margin="0 0 0 0" 
+                             Width="190" Height="30" FontWeight="DemiBold"  
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                             VerticalAlignment="Bottom" Grid.Row="0" PasswordChar="*" 
+                             KeyUp="EnterUpPsw"/>
+
+
+
+
+                <!--LABEL FOR LOGIN UPDATE-->
+                <Label Name="loginLb" Content="Login failed..." Foreground="#ffb703" FontWeight="DemiBold" 
+                       FontSize="15"  Grid.Row="1" Margin="0 0 0 20" Visibility="Hidden"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Center" FontFamily="Arial"/>
+
+
+
+                <!--USERNAME LABEL AND TEXTBOX GRID-->
+            </Grid>
+
+
+            <!--GRID FOR USERNAME PASSWORD-->
+        </Grid>
+
+
+        
+
+        <!--DUGME ZA ZATBLAG-->
+        <Button Name="btnLogin" Content="Login" Click="LoginBtn"  
+                FontWeight="DemiBold" Grid.Row="3"  
+                MaxHeight="50" MaxWidth="150"
+                Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+
+        <!--BASE GRID-->
+    </Grid>
+</Window>

@@ -1,0 +1,22 @@
+﻿<Application x:Class="LillyApp_TEST.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:LillyApp_TEST"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="Themes/ButtonStyleTheme.xaml"/>
+                <ResourceDictionary Source="Themes/TextBoxStyleTheme.xaml"/>
+                <ResourceDictionary Source="Themes/PasswordBoxStyleTheme.xaml"/>
+                <ResourceDictionary Source="Themes/DataGridStyleBasicTheme.xaml"/>
+
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+        
+    </Application.Resources>
+</Application>

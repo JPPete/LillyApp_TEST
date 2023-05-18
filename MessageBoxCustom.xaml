@@ -1,0 +1,126 @@
+﻿<Window x:Class="LillyApp_TEST.MessageBoxCustom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LillyApp_TEST"
+        mc:Ignorable="d"
+        Title="MessageBoxCustom"
+        MinHeight="250" MinWidth="450" 
+        Height="250" Width="450"
+        Background="#003459"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Topmost="True"
+        ShowInTaskbar="False">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Name="ToolBar" Grid.Row="0" 
+                    HorizontalAlignment="Stretch" Background="Transparent"
+                    MouseLeftButtonDown="MouseDownHold"
+                   />
+        
+        <!--STACK PANEL ZA NASLOV-->
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+            <Image  Source="\Images\lilly_cvetic_400x400.png" 
+                    Height="40"  Grid.Row="0" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    IsHitTestVisible="False"/>
+
+
+            <Label Name="lbNaslov"
+                   Content="OBAVESTENJE"
+                   Margin="40 0 40 0"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   FontWeight="DemiBold" FontSize="20"
+                   Foreground="#ffb703"
+                   IsHitTestVisible="False"/>
+
+            <Image  Source="\Images\lilly_cvetic_400x400.png" 
+                    Height="40"  Grid.Row="0" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    IsHitTestVisible="False"/>
+
+
+        </StackPanel>
+
+
+        <!--TEXT BOX ZA UNOS PORUKE-->
+        <TextBox Name="tbPoruka"
+                 Text="DA LI STE SIGURNI? jer ja ne znam kako ce reagovati ovaj program ako kazete da?"
+                 Grid.Row="1"
+                 Margin="15 5 15 5"
+                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                 TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                 Foreground="#ffb703" Background="#003459"
+                 FontWeight="DemiBold" FontSize="20" TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 BorderThickness="0"
+                   />
+
+
+
+
+        <!--STACK PANEL ZA DUGMICE-->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    >
+
+            <Button Name="btnDa"
+                    Content="DA"
+                    Click="YesBtn"
+                    Height="30" Width="100"
+                    Margin="20 0 20 0"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    ToolTip="DA"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+
+            <Button Name="btnOK"
+                    Content="OK"
+                    Click="OkBtn"
+                    Height="30" Width="100"
+                    Margin="20 0 20 0"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Visibility="Visible"
+                    ToolTip="OK"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+
+
+            <Button Name="btnNe"
+                    Content="NE"
+                    Click="NoBtn"
+                    Height="30" Width="100"
+                    Margin="20 0 20 0"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    ToolTip="NE"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+
+
+        </StackPanel>
+
+
+
+
+        <!--MAIN GRID-->
+    </Grid>
+</Window>

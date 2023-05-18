@@ -1,0 +1,24 @@
+﻿<Window x:Class="LillyApp_TEST.ProgramUPripremi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LillyApp_TEST"
+        mc:Ignorable="d"
+        Title="Program u pripremi" 
+        Height="300" Width="400" ResizeMode="CanMinimize" 
+        WindowStartupLocation="CenterScreen" 
+        Background="#003459">
+    <Grid>
+
+        <Label Content="Program u pripremi :)" Foreground="#ffb703" FontWeight="DemiBold" 
+                       FontSize="16"  Grid.Row="0" Margin="0 0 0 100"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial"/>
+
+
+        <!--LILLY LOGO IMAGE BACKGROUND-->
+        <Image  Source="Images\lilly_cvetic_400x400.png" Height="100"  Margin="0 50 0 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+
+    </Grid>
+</Window>

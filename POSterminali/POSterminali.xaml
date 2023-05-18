@@ -1,0 +1,395 @@
+﻿<Window x:Class="LillyApp_TEST.POSterminali"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LillyApp_TEST"
+        mc:Ignorable="d"
+        Title="POS terminali"
+        MinHeight="570" MinWidth="900" 
+        Height="570" 
+        Width="1200"  
+        WindowStartupLocation="CenterScreen" 
+        Background="#003459">
+    <Grid>
+        <!--GRID ROW FOR NASLOV i OSTATAK-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--NASLOV-->
+        <Label Content="POS terminali"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                FontSize="20" Foreground="#ffb703" FontWeight="Bold"/>
+
+
+
+        <!--GRID KOJI SADZI SVE ISPOD NASLOVA-->
+        <Grid Grid.Row="1">
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.20*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <!--GRID FOR DG and Buttons-->
+            <Grid Grid.Column="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.2*"/>
+                </Grid.RowDefinitions>
+
+                <!--DATA GRID FOR SHOWING QUERY DATA-->
+                <DataGrid Name="dgPosTerminali"
+                          Grid.Column="0"
+                          Grid.Row="0"
+                          Margin="10"
+                          FontSize="16"
+                          HorizontalContentAlignment="Center"
+                          Style="{StaticResource BasicDataGrid}"
+                          />
+
+
+
+                <!--GRID FOR BUTTONS-->
+                <Grid Grid.Row="1">
+
+
+                    <Button Name="btnObrisi"
+                            Click="ObrisiBtn"
+                            Visibility="VISIBLE"
+                            HorizontalAlignment="Left" VerticalAlignment="Center"
+                            Height="60" Width="80"
+                            Margin="20 0 20 0"
+                            FontWeight="Bold"
+                            Style="{StaticResource ExtremeButtonStyle}">
+                        <TextBox Background="Transparent" Text="OBRISI BLAGAJNU-TERMINAL" 
+                                 TextWrapping="WrapWithOverflow"
+                                 IsReadOnly="True"
+                                 IsHitTestVisible="False"
+                                 FontSize="12"
+                                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                                 VerticalAlignment="Center" HorizontalAlignment="Center"
+                                 BorderThickness="0"/>
+                    </Button>
+
+
+
+
+                    <!--STACK PANEL FOR BUTTONS-->
+                    <StackPanel Grid.Row="1"
+                                Margin="0 0 0 0"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            >
+
+
+
+                        <Button Name="btnIzmeni"
+                            Content="UNESI"
+                            Click="UnesiBtn"
+                            Height="50" Width="150"
+                            Margin="20 0 20 0"
+                            FontWeight="Bold"
+                            FontSize="15"
+                            ToolTip="Unos ili izmena podataka terminala"
+                            Style="{StaticResource MyButtonStyle}"/>
+
+
+                        <Button Name="btnPronadji"
+                            Content="PRONADJI"
+                            Click="PronadjiBtn"
+                            Height="50" Width="150"
+                            Margin="20 0 0 0"
+                            FontWeight="Bold"
+                            FontSize="15"
+                            Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+
+
+                        <!--STACK PANEL FOR BUTTONS-->
+                    </StackPanel>
+
+
+
+
+                    <!--GRID FOR BUTTONS-->
+                </Grid>
+
+
+
+
+
+
+
+            </Grid>
+            <!--GRID FOR DG and Buttons-->
+
+
+
+
+
+
+            <!--GRID FOR INPUT-->
+            <Grid Grid.Column="1">
+
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.8*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <!--GRID FOR INPUTS-->
+                <Grid VerticalAlignment="Top">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.5*"/>
+                    </Grid.RowDefinitions>
+
+
+
+
+                    <!--STACK PANEL ZA UNOS POSLOVNICE-->
+                    <StackPanel Grid.Row="0">
+                        <Label Content="Poslovnica" 
+                           Margin="0 10 0 0" 
+                           Foreground="#ffb703" 
+                           FontSize="15" VerticalAlignment="Top" 
+                           HorizontalAlignment="Center" 
+                           FontWeight="DemiBold"/>
+
+                        <TextBox Name="txtPosl"
+                               Width="180" Height="30"
+                               FontWeight="DemiBold"
+                               FontSize="20"
+                               Margin="0"
+                               PreviewTextInput="NumberValidationTextBox"
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               MaxLength="6"
+                               KeyUp="PoslEnter"/>
+
+
+                        <!--STACK PANEL ZA UNOS POSLOVNICE-->
+                    </StackPanel>
+
+                    <!--STACK PANEL ZA UNOS BLAGAJNE-->
+                    <StackPanel Grid.Row="1">
+                        <Label Content="Blagajna" 
+                           Margin="0 10 0 0" 
+                           Foreground="#ffb703" 
+                           FontSize="15" VerticalAlignment="Top" 
+                           HorizontalAlignment="Center" 
+                           FontWeight="DemiBold"/>
+
+                        <TextBox Name="txtBlag"
+                               Width="180" Height="30"
+                               FontWeight="DemiBold"
+                               FontSize="20"
+                               Margin="0"
+                               PreviewTextInput="NumberValidationTextBox"
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               MaxLength="4"
+                               KeyUp="BlagEnter"/>
+
+
+                        <!--STACK PANEL ZA UNOS BLAGAJNE-->
+                    </StackPanel>
+
+
+
+                    <!--STACK PANEL ZA UNOS TID-a-->
+                    <StackPanel Grid.Row="2">
+                        <Label Content="TID" 
+                           Margin="0 10 0 0" 
+                           Foreground="#ffb703" 
+                           FontSize="15" VerticalAlignment="Top" 
+                           HorizontalAlignment="Center" 
+                           FontWeight="DemiBold"/>
+
+                        <TextBox Name="txtTID"
+                               Width="180" Height="30"
+                               FontWeight="DemiBold"
+                               FontSize="20"
+                               Margin="0"
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               KeyUp="TIDEnter"/>
+
+
+                        <!--STACK PANEL ZA UNOS TID-a-->
+                    </StackPanel>
+
+
+                    <!--STACK PANEL ZA UNOS MAC-a-->
+                    <StackPanel Grid.Row="3">
+
+                            <Label Content="MAC" 
+                                    Margin="0 10 0 0" 
+                                    Foreground="#ffb703" 
+                                    FontSize="15" VerticalAlignment="Top" 
+                                    HorizontalAlignment="Center" 
+                                    FontWeight="DemiBold"/>
+
+
+
+                            <TextBox Name="txtMAC"
+                               Width="180" Height="30"
+                               FontWeight="DemiBold"
+                               FontSize="20"
+                               Margin="0 0 0 0"
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               HorizontalAlignment="Center"
+                               KeyUp="MACEnter"/>
+
+
+                        <Grid Width="180">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
+
+
+                            <Label Name="laSearchMac"
+                                   Margin="0 10 0 0"
+                                   Foreground="#ffb703"
+                                   FontWeight="DemiBold"
+                                   Content=""
+                                   />
+
+
+
+                            <Button Name="btnFindMac"
+                                    Click="FindMacbtn"
+                                    Grid.Column="1"
+                                    Margin="0 10 0 0"
+                                    HorizontalAlignment="Right"
+                                    Width="40"
+                                    Height="20"
+                                    ToolTip="Pronadji MAC adrese po blagajni"
+                                    Style="{StaticResource SearchButtonStyle}"
+                                />
+
+
+                        </Grid>
+
+                            
+
+
+                            
+
+
+                            
+
+
+
+                        <!--STACK PANEL ZA UNOS MAC-a-->
+                    </StackPanel>
+
+
+                    
+
+
+
+                    <!--GRID FOR INPUTS-->
+                </Grid>
+
+
+                <!--GRID FOR LIST BOX AND BUTTON AND INFO-->
+                <Grid Grid.Row="1">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                    
+
+
+
+                    <!--LIST BOX FOR SHOWING MAC ADRESSES FROM THE ROUTER-->
+                    <ListBox Name="lbMacAdresses"
+                             SelectionChanged="SelectedValuelb"
+                             Grid.Row="1"
+                             Margin="0 0 0 0"
+                             VerticalAlignment="Top"
+                             Width="180"
+                             MinHeight="120" 
+                             Background="#003459"
+                             Foreground="#ffb703"
+                             BorderThickness="0"
+                             FontWeight="DemiBold"
+                             FontSize="15"
+                             HorizontalContentAlignment="Center"
+                             d:ItemsSource="{d:SampleData ItemCount=5}"
+                    />
+
+
+
+                    <Label Name="INFO"
+                       Grid.Row="1"
+                        Content="?"
+                        MouseLeftButtonUp="InfoPanel"
+                        Foreground="#ffb703"
+                        FontFamily="Times New Roman"
+                        FontSize="15"
+                        FontWeight="DemiBold"
+                        VerticalContentAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="0 10 10 0"
+                        />
+
+
+                    <!--GRID FOR LIST BOX AND BUTTON AND INFO-->
+                </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </Grid>
+            <!--GRID FOR INPUT-->
+
+
+
+
+            <!--GRID KOJI SADZI SVE ISPOD NASLOVA-->
+        </Grid>
+
+        <!--GRID ROW FOR NASLOV i OSTATAK-->
+    </Grid>
+</Window>

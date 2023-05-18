@@ -1,0 +1,97 @@
+﻿<Window x:Class="LillyApp_TEST.LoyaltyBrRacun"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LillyApp_TEST"
+        mc:Ignorable="d"
+        Title="LoyaltyBrRacun" 
+        Height="500" Width="500" 
+        ResizeMode="CanMinimize" WindowStartupLocation="Manual"  
+        Background="#003459">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1.2*"/>
+        </Grid.RowDefinitions>
+
+
+        <Label Content="Broj Loyalty Kartice" Foreground="#ffb703" FontWeight="DemiBold" 
+                       FontSize="25"  Grid.Row="0" Margin="0 0 0 0"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial"/>
+
+
+
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <!--LABEL I TEXT BOX ZA UNOS BROJA RACUNA-->
+            <StackPanel Grid.Row="1" VerticalAlignment="Center">
+
+                <Label Content="Broj Racuna" Foreground="#ffb703" FontWeight="DemiBold" 
+                    FontSize="15"  Grid.Row="0" Margin="0 0 0 0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial"/>
+
+                <TextBox Name="txtBrRacuna" FontSize="18" 
+                         Margin="0 0 0 0" Width="190" Height="30" 
+                         FontWeight="DemiBold"  
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                         VerticalAlignment="Top" Grid.Row="0" 
+                         KeyUp="EnterUpBrRacuna"
+                         PreviewTextInput="NumberValidationTextBox"/>
+
+            </StackPanel>
+
+            <!--DUGME ZA PRONALAZAK BROJA KARTICE-->
+            <Button Name="btnFindKartica" Content="Pronadji" 
+                    Click="FindBrKarticeBtn"  
+                    FontWeight="DemiBold"  
+                    MaxHeight="50" MaxWidth="150" Width="200"
+                    Height="38" Margin="70 25 0 0"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+            <!---->
+
+            <!--STACKPANEL ZA SREDNJI GRID-->
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+            <Label Content="Broj Loyalty kartice" Foreground="#ffb703" FontWeight="DemiBold" 
+                    FontSize="15"  Grid.Row="0" Margin="0 10 0 0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial"/>
+
+            <!--TEXT BOX ZA PRIKAZ REZULTATA-->
+            <TextBox Name="txtBrLoyal" FontSize="18" Margin="0 5 0 0" 
+                     Width="190" Height="30" FontWeight="DemiBold"  
+                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                     IsReadOnly="True" Grid.Row="2"/>
+
+            <Label Content="Lilly Vrste Placanja" Foreground="#ffb703" FontWeight="DemiBold" 
+                    FontSize="15"  Grid.Row="0" Margin="0 20 0 0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial"/>
+
+
+            <DataGrid Name="dgVrstePlacanja" 
+                      Height="120" Width="380"
+                      Margin="0 10 0 0"
+                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                      FontSize="15"
+                      Style="{StaticResource BasicDataGrid}"/>
+
+
+
+        </StackPanel>
+
+
+
+        
+
+
+
+
+        <!---BASE GRID-->
+    </Grid>
+</Window>

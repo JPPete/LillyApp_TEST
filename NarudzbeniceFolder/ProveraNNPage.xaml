@@ -1,0 +1,112 @@
+﻿<Page x:Class="LillyApp_TEST.ProveraNNPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LillyApp_TEST"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProveraNNPage" Background="#003459">
+
+    <Grid>
+        <!--NASLOV-->
+        <!--Label Content="NARUDZBENICE" Foreground="#ffb703" FontWeight="DemiBold" FontSize="40" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Mangal"/-->
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Grid for broj narudzbenice-->
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.5*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Broj Narudzbenice" Name="brNartxt" Foreground="#ffb703" FontSize="15" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+                           FontWeight="DemiBold" Grid.Row="0" />
+                    <!--NARUDZBENICA MOZE DA IMA NAJVICE 11 BROJEVA-->
+                    <TextBox Name="brNNtxt" FontSize="18" Height="40" 
+                             FontWeight="DemiBold" Margin="15" 
+                             MaxLength="11" 
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                             VerticalAlignment="Top" 
+                             Grid.Row="1" PreviewTextInput="NumberValidationTextBox"/>
+
+
+                    <!--Grid for broj narudzbenice-->
+                </Grid>
+
+
+                <!--LABEL THAT SHOWS LOADING OF QUERY AND QUERY TIME-->
+                <Label Name="LoadingLb" Content="" Grid.Row="2" Foreground="#ffb703" FontWeight="DemiBold" FontSize="12" HorizontalAlignment="Center" 
+                       VerticalAlignment="Bottom" Visibility="Hidden"/>
+
+
+
+                <!--DUGME ZA PROVERU NN I VEZANIH DOKUMENATA-->
+                <Button Content="Proveri NN i vezane dokumente" 
+                        Click="ProveraNNbtn" Grid.Row="3"  
+                        FontSize="12"
+                        MinHeight="30" Height="40" 
+                        MaxHeight="50" MaxWidth="300" 
+                        FontWeight="DemiBold" VerticalAlignment="Bottom"
+                        Style="{StaticResource MyButtonStyle}"/>
+
+
+
+                <!--DUGME ZA PROVERU ARTIKALA I PRIHVACENIH STAVKI NA NN-->
+                <Button Content="Artikli na NN i prihvacene stavke" 
+                        Click="Artiklibtn" Grid.Row="4" FontSize="12" 
+                        MinHeight="30" Height="40" 
+                        MaxHeight="50" MaxWidth="300" 
+                        FontWeight="DemiBold"
+                        Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+                <!--DUGME ZA PROVERU DOKUMENATA OD ALTERMEDIJE-->
+                <Button Content="Dokumenti Altermedije" 
+                        Click="AMbtn" Grid.Row="5" 
+                        FontSize="12" MinHeight="30" 
+                        Height="40" MaxHeight="50" MaxWidth="300" 
+                        FontWeight="DemiBold" VerticalAlignment="Top"
+                        Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+
+                <!--THIS IS FOR RIGHT COLUM IN BOTTOM GRID-->
+            </Grid>
+
+            <!--DATA GRID ZA PRIKAZIVANJE UPITA-->
+            <DataGrid Name="NarudzbeniceDG" 
+                      Margin="10" 
+                      RowHeight="20" 
+                      HorizontalContentAlignment="Center" 
+                      CanUserResizeColumns="True" 
+                      CanUserSortColumns="True" 
+                      LoadingRow="DG_LoadingRow"
+                      Style="{StaticResource BasicDataGrid}"
+                      />
+
+
+
+            <!--THIS IS THE BOTTOM GRID ROW-->
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,76 @@
+﻿<Page x:Class="LillyApp_TEST.FakturisanjePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LillyApp_TEST"
+      mc:Ignorable="d" 
+      d:DesignHeight="480" d:DesignWidth="990"
+      Title="FakturisanjePage"
+      Background="#003459">
+
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel Margin=" 0 0 30 0">
+                <Label Content="RESURS" Foreground="#ffb703" FontWeight="DemiBold" 
+                    FontSize="20"  Grid.Row="0" Margin="0 0 0 0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial"/>
+
+                <TextBox Name="txtResurs" FontSize="18" 
+                         Margin="0 0 0 0" Width="190" Height="35" 
+                         FontWeight="DemiBold"  
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                         VerticalAlignment="Top" Grid.Row="0" 
+                         KeyUp="EnterUpResurs"
+                         />
+            </StackPanel>
+
+
+            <StackPanel Margin="30 0 0 0">
+                <Label Content="BRUTO" Foreground="#ffb703" FontWeight="DemiBold" 
+                    FontSize="20"  Grid.Row="0" Margin="0 0 0 0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial"/>
+
+                <TextBox Name="txtBruto" FontSize="18" 
+                         Margin="0 0 0 0" Width="190" Height="35" 
+                         FontWeight="DemiBold"  
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                         VerticalAlignment="Top" Grid.Row="0" 
+                         KeyUp="EnterUpBruto"
+                         />
+            </StackPanel>
+            
+            
+        </StackPanel>
+
+
+
+        <!--DUGME ZA GENERISANJE IZVESTAJA-->
+        <Button Content="GENERISI IZVESTAJ" Grid.Row="1" 
+                    FontWeight="DemiBold" 
+                    MaxWidth="300" MinWidth="200" 
+                    Height="100"
+                    Width="150"
+                    FontSize="17"
+                    Margin="0 0 0 0" Click="Generisibtn" 
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+        <!--MAIN GRID-->
+    </Grid>
+</Page>

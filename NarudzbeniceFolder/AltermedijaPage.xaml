@@ -1,0 +1,143 @@
+﻿<Page x:Class="LillyApp_TEST.AltermedijaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:local="clr-namespace:LillyApp_TEST"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AltermedijaPage" Background="#003459">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--INPUT GRID-->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="1.5*"/>
+                
+            </Grid.RowDefinitions>
+
+
+            <StackPanel Grid.Row="0">
+                <!--LABEL I TXT BOX ZA UNOS BROJA POSLOVNICE-->
+                <Label Content="Poslovnica" Margin="0 6 0 0" Foreground="#ffb703" FontSize="15" VerticalAlignment="Top" 
+                   HorizontalAlignment="Center" FontWeight="DemiBold" Grid.Row="0" />
+                <TextBox Name="txtPosl" FontSize="20" 
+                         Margin="0 0 0 15" Width="190" Height="30" 
+                         FontWeight="DemiBold"  
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" 
+                         VerticalAlignment="Bottom" Grid.Row="0"
+                         PreviewTextInput="NumberValidationTextBox" 
+                         MaxLength="6" KeyUp="PoslEnter"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <!--LABEL I DATE PICKER ZA UNOS BROJA DATUM OD-->
+                <Label Content="Datum od" Grid.Row="1" Foreground="#ffb703" 
+                       FontSize="15" FontWeight="DemiBold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0 3 0 0"/>
+                <DatePicker Name ="dtDatumOd"  Grid.Row="1"  
+                            Margin="0 5 0 0" MinWidth="190" 
+                            MaxHeight="30"  HorizontalAlignment="Center"  
+                            VerticalContentAlignment="Center" FirstDayOfWeek="Monday"
+                            SelectedDate="{x:Static sys:DateTime.Now}"
+                            IsTodayHighlighted="True" KeyUp="DatumOdEnter"
+                            />
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="2">
+                <!--LABEL I TXT BOX ZA UNOS BROJA DATUM DO-->
+                <Label Content="Datum do" Grid.Row="2" Foreground="#ffb703" 
+                       FontSize="15" FontWeight="DemiBold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0 3 0 0"/>
+                <DatePicker Name ="dtDatumDo" Grid.Row="2"  
+                            Margin="0 5 0 0" MinWidth="190"  MaxHeight="30" 
+                            HorizontalAlignment="Center"  
+                            VerticalContentAlignment="Center" FirstDayOfWeek="Monday"
+                            SelectedDate="{x:Static sys:DateTime.Now}"
+                            IsTodayHighlighted="True" KeyUp="DatumDoEnter"/>
+            </StackPanel>
+
+
+
+            <StackPanel Grid.Row="3">
+                <!--LABEL I TXT BOX ZA UNOS BROJA KOMITENTA-->
+                <Label Content="Komitent" Grid.Row="3" Foreground="#ffb703" FontSize="15" FontWeight="DemiBold" HorizontalAlignment="Center" 
+                   Margin="0 6 0 0"/>
+                <TextBox Name="txtKomitent" Grid.Row="3" FontSize="20" Width="190" 
+                         Margin="0 0 0 15" Height="30" FontWeight="DemiBold"  
+                     HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" 
+                         VerticalAlignment="Bottom"
+                     PreviewTextInput="NumberValidationTextBox" MaxLength="8" 
+                         KeyUp="KomitentEnter"/>
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="5">
+                <!--DUGME ZA PRONALAZENJE NARUDZBENICA-->
+                <Button Content="Pokreni" Click="PokreniAMbtn" 
+                        Grid.Row="5" MinWidth="50" MinHeight="60" 
+                        Margin="15 0 15 0" 
+                        FontWeight="DemiBold" VerticalAlignment="Center" 
+                        Foreground="#003459"
+                        Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+
+                <!--DUGME ZA PROVAJDERE NA EDI-->
+                <Button Content="Provajderi za EDI" Click="DobNaEDIbtn" 
+                        Grid.Row="5" MinWidth="50" 
+                        MinHeight="30" Margin="15 20 15 0" 
+                        FontWeight="DemiBold" VerticalAlignment="Center" 
+                        Foreground="#003459"
+                        Style="{StaticResource MyButtonStyle}"/>
+
+
+            </StackPanel>
+            
+
+
+
+            <!--LABEL THAT SHOWS LOADING OF QUERY AND QUERY TIME-->
+            <Label Name="LoadingLb" Content="" Grid.Row="4" Foreground="#ffb703" FontWeight="DemiBold" FontSize="12" HorizontalAlignment="Center" 
+                       Margin="0"   VerticalAlignment="Bottom" Visibility="Hidden"/>
+
+
+
+            
+
+
+            <!--INPUT GRID-->
+        </Grid>
+
+
+        <!--DATA GRID ZA PRIKAZIVANJE UPITA-->
+        <DataGrid Name="AMuPoslDG" 
+                  Margin="10" 
+                  RowHeight="20" 
+                  HorizontalContentAlignment="Center" 
+                  CanUserResizeColumns="False" 
+                  CanUserSortColumns="True"
+                  LoadingRow="DG_LoadingRow"
+                  Style="{StaticResource BasicDataGrid}"
+                  />
+
+
+        <!--BASE GRID-->
+    </Grid>
+</Page>

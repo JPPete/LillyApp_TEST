@@ -1,0 +1,121 @@
+﻿<Window x:Class="LillyApp_TEST.LillyMainApp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LillyApp_TEST"
+        mc:Ignorable="d"
+        Title="Lilly App" Height="400" Width="600" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#003459">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--LILLY LOGO IMAGE BACKGROUND-->
+        <Image  Source="Images\lilly_cvetic_400x400.png" Height="100" 
+                Grid.Column="1" Grid.Row="1" 
+                VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <!--DUGME ZA ZATBLAG-->
+        <Button Name="Zatblagbtn" Content="ZatBlag" 
+                Click="ZatBlagBtn"  FontWeight="DemiBold" 
+                Grid.Row="2" Grid.Column="1" 
+                MaxHeight="50" MaxWidth="150"
+                Style="{StaticResource MyButtonStyle}"/>
+
+
+
+        <!--DUGME ZA NARUDZBENICE-->
+        <Button Name="NNbtn" Content="Narudzbenice" 
+                FontWeight="DemiBold" 
+                Grid.Row="2" Grid.Column="0" 
+                MaxHeight="50" MaxWidth="150" 
+                Click="NarudzbeniceBtn"
+                Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+        <!--DUGME ZA Knjizenje dokumenata-->
+        <Button Name="PrekoracenjaIFakturisanjebtn"  
+                Click="PrekoIFakturBtn" FontWeight="DemiBold" 
+                Grid.Row="1" Grid.Column="2" 
+                MaxHeight="50" MaxWidth="150"
+                Visibility="Visible"
+                Style="{StaticResource MyButtonStyle}">
+            <TextBox Background="Transparent" Text="Prekoracenja i Fakturisanje" 
+                                 TextWrapping="WrapWithOverflow"
+                                 IsReadOnly="True"
+                                 IsHitTestVisible="False"
+                                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                                 VerticalAlignment="Center" HorizontalAlignment="Center"
+                                 BorderThickness="0"/>
+        </Button>
+
+
+        <!--DUGME ZA Popisivanje POS terminala-->
+        <Button Name="PosTermbtn" Content="POS TERMINALI" 
+                Click="PosTerminaliBtn" FontWeight="DemiBold" 
+                Grid.Row="0" Grid.Column="2" 
+                MaxHeight="50" MaxWidth="150"
+                Visibility="Visible"
+                Style="{StaticResource MyButtonStyle}"/>
+        
+
+
+        <!--DUGME ZA Proveru broja loyalty kartice na racunu-->
+        <Button Name="Loyaltybtn" Content="Loyalty kartica na racunu" 
+                Click="LoyaltyBtn" FontWeight="DemiBold" 
+                Grid.Row="2" Grid.Column="2" 
+                MaxHeight="50" MaxWidth="150"
+                Style="{StaticResource MyButtonStyle}"/>
+
+
+
+        <!--DUGME ZA D listu-->
+        <Button Name="Dlistabtn" Content="D Lista" 
+                Click="DlistaBtn" FontWeight="DemiBold" 
+                Grid.Row="1" Grid.Column="0" 
+                MaxHeight="50" MaxWidth="150"
+                Visibility="Visible"
+                Style="{StaticResource MyButtonStyle}"/>
+
+
+
+        <!--DUGME ZA POS integraciju-->
+        <Button Name="Integbtn" 
+                Click="IntegracijaBtn" FontWeight="DemiBold" 
+                Grid.Row="0" Grid.Column="0" 
+                MaxHeight="50" MaxWidth="150"
+                Visibility="Visible"
+                Style="{StaticResource MyButtonStyle}">
+            <TextBlock Text="POS Integracija"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"/>
+        </Button>
+
+
+        <!--DUGME ZA Cene artikala-->
+        <Button Name="CeneArtbtn" 
+                Click="CeneArtBtn" FontWeight="DemiBold" 
+                Grid.Row="0" Grid.Column="1" 
+                MaxHeight="50" MaxWidth="150"
+                Visibility="Visible"
+                Style="{StaticResource MyButtonStyle}">
+            <TextBlock Text="Cene Artikla"
+                       TextWrapping="Wrap"
+                       FontWeight="DemiBold"
+                       TextAlignment="Center"/>
+        </Button>
+
+
+    </Grid>
+</Window>

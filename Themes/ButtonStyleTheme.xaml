@@ -1,0 +1,96 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="{x:Type Button}"
+           x:Key="MyButtonStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="MainBorder" CornerRadius="10" Margin="0 0 1 1" BorderBrush="Black" BorderThickness="0.5" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.5,1">
+                    <GradientStop Color="#ffb703" Offset="0" />
+                    <GradientStop Color="#ffb703" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#ABDBE3"/>
+            </Trigger>
+        </Style.Triggers>
+        
+    </Style>
+
+
+    <Style TargetType="{x:Type Button}"
+           x:Key="ExtremeButtonStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="MainBorder" CornerRadius="10" Margin="0 0 1 1" BorderBrush="Black" BorderThickness="0.5" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.5,1">
+                    <GradientStop Color="OrangeRed" Offset="0" />
+                    <GradientStop Color="OrangeRed" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#ABDBE3"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+
+
+
+    <Style TargetType="{x:Type Button}"
+           x:Key="SearchButtonStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="MainBorder" CornerRadius="10" Margin="0 0 1 1" BorderBrush="Black" BorderThickness="0.5" Background="{TemplateBinding Background}">
+                        <Image Source="\Images\SearchIcon24.png" Margin="2"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.5,1">
+                    <GradientStop Color="#ffb703" Offset="0" />
+                    <GradientStop Color="#ffb703" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#ABDBE3"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+
+</ResourceDictionary>

@@ -1,0 +1,89 @@
+﻿<Window x:Class="LillyApp_TEST.DLista"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LillyApp_TEST"
+        mc:Ignorable="d"
+        Title="DLista" Height="300" Width="500" 
+        ResizeMode="CanMinimize" 
+        WindowStartupLocation="Manual"  
+        Background="#003459">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.9*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.2*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="D LISTA" Foreground="#ffb703" 
+               FontWeight="DemiBold" 
+               FontSize="25"  Grid.Row="0" Margin="0 0 0 0"
+               VerticalAlignment="Center" HorizontalAlignment="Center" 
+               FontFamily="Arial"/>
+
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+
+            <!--LABEL I TEXT BOX ZA UNOS ID ARTIKLA-->
+            <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="0 0 40 0">
+
+                <Label Content="ID Artikla" 
+                       Foreground="#ffb703" FontWeight="DemiBold" 
+                       FontSize="15"  Grid.Row="0" Margin="0 0 0 0"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" 
+                       FontFamily="Arial"/>
+
+                <TextBox Name="txtIDArtikla" FontSize="18" 
+                         Margin="0 0 0 0" Width="190" Height="30" 
+                         FontWeight="DemiBold"  
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                         VerticalAlignment="Top" Grid.Row="0" 
+                         KeyUp="EnterUpIdArtikla"
+                         MaxLength="12"
+                         PreviewTextInput="NumberValidationTextBox"/>
+
+            </StackPanel>
+
+
+            <!--LABEL I TEXT BOX ZA UNOS CENE ARTIKLA-->
+            <StackPanel Grid.Row="1" VerticalAlignment="Center">
+
+                <Label Content="Cena najmanje jedinice artikla" 
+                       Foreground="#ffb703" FontWeight="DemiBold" 
+                       FontSize="13"  Grid.Row="0" Margin="0 0 0 0"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" 
+                       FontFamily="Arial"/>
+
+                <!--TEXT BOX ZA UNOS CENE-->
+                <TextBox Name="txtCena" FontSize="18" Margin="0 0 0 0" 
+                         Width="190" Height="30" FontWeight="DemiBold"  
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                         KeyUp="EnterUpCena"
+                         Grid.Row="2"
+                         MaxLength="17"
+                         PreviewTextInput="CenaValidationTextBox"/>
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+
+        <!--DUGME ZA PROMENU PODATAKA U BAZI-->
+        <Button Name="btnRunDLista" Content="Pokreni" 
+                    Click="RunDListaBtn"
+                    Grid.Row="2"
+                    FontWeight="DemiBold"  
+                    MaxHeight="50" MaxWidth="150" Width="200"
+                    Height="38" Margin="0 0 0 0" 
+                    Style="{StaticResource MyButtonStyle}"/>
+
+
+
+
+
+        <!--BASE GRID-->
+    </Grid>
+</Window>
